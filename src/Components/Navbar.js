@@ -20,6 +20,8 @@ export default function Example() {
     navigation=[
       { name: "Home", href: "/", current: location.pathname === "/" },
       { name: "Diagnosis", href: "/SymptomDashboard", current: location.pathname === "/SymptomDashboard" },
+      { name: "Reports", href: "/Reports", current: location.pathname === "/Reports" },
+      { name: "ChatBot", href: `/ChatBot`, current: location.pathname === "/ChatBot" }
     ]
   }
 

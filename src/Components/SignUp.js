@@ -2,8 +2,8 @@ import image from "./../Items/logo.jpg";
 import sideImage from "./../Items/6310507.jpg";
 import Input from "../utils/Input";
 import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import BASE_URL from "../utils/Constant";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Signup() {
   const formTags = [
@@ -34,7 +34,7 @@ export default function Signup() {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const data = {
-      Name: nameRef.current.value,
+      fullname: nameRef.current.value,
       email: emailRef.current.value,
       password: passwordRef.current.value,
       aadharId:aadharIdRef.current.value
@@ -51,7 +51,7 @@ export default function Signup() {
       return;
     }
 
-    const response = await fetch(`http://127.0.0.1:5000/signup`, {
+    const response = await fetch(`http://127.0.0.1:8080/api/v1/user/signup`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

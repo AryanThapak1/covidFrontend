@@ -7,7 +7,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const onClickHandler = () => {
-    navigate("/diagnose");
+    navigate("/signup");
   };
 
   return (

@@ -7,6 +7,9 @@ import Login from "./Components/Login";
 import { loader as Authchecker } from "./utils/AuthChecker";
 import ForgotPassword from "./Components/ForgotPassword";
 import SymptomDashboard from "./Components/SymptomDashboard";
+import Reports from "./Components/Reports";
+import ReportDetails from "./Components/ReportDetails";
+import ChatBox from "./Components/ChatBox";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +35,15 @@ function App() {
         },{
           path:"SymptomDashboard",
           element:<SymptomDashboard/>
+        },{
+          path:"Reports",
+          element:<Reports/>
+        },{
+          path:'Reports/:id',
+          element:<ReportDetails/>
+        },{
+          path:"ChatBot",
+          element:<ChatBox/>
         }
       ],
     },

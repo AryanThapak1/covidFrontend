@@ -3,7 +3,6 @@ import image from "./../Items/logo.jpg";
 import sideImage from "./../Items/Mobile login-amico.png";
 import Input from "../utils/Input";
 import { useRef, useState } from "react";
-import BASE_URL from "../utils/Constant";
 export default function Login() {
   const [wrongPassword, setWrongPassword] = useState(false);
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ export default function Login() {
       password: PasswordRef.current.value,
     };
 
-    const response = await fetch(`http://127.0.0.1:5000/login`, {
+    const response = await fetch(`http://127.0.0.1:8080/api/v1/user/login`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -34,7 +33,7 @@ export default function Login() {
     const processedData = await response.json();
     const token = processedData.token;
     sessionStorage.setItem("token", token);
-
+    sessionStorage.setItem("userId", processedData.userId); 
     setTimeout(() => {
       navigate("/SymptomDashboard");
     });

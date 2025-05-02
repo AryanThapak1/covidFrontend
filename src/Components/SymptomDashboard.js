@@ -16,14 +16,15 @@ const symptoms = [
 
 const SymptomDashboard = () => {
   const [data, setData] = useState(new Array(symptoms.length).fill(0));
-
+  const token=sessionStorage.getItem("token");
   const onSubmitHandler = async () => {
     try {
-      const req = await fetch(`http://127.0.0.1:5000/predict`, {
+      const req = await fetch(`http://127.0.0.1:8080/api/v1/report`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization":`Bearer ${token}`
         }
       });
 
